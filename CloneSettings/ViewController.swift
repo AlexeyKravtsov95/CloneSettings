@@ -7,11 +7,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-    private let tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+class ViewController: UIViewController, UITableViewDelegate {
+    
+    let data = [
+        "Section0": [Model(title: "Авиарежим"), Model(title: "Wi-Fi"), Model(title: "Bluetooth"), Model(title: "Сотовая связь"), Model(title: "Режим модема"), Model(title: "VPN")],
+        "Section1": [Model(title: "Уведомления"), Model(title: "Звук, тактильные сигналы"), Model(title: "Не беспокоить"), Model(title: "Экранное время")],
+        "Section2": [Model(title: "Основные"), Model(title: "Пункт управления"), Model(title: "Экран и яркость"), Model(title: "Экран \"Домой\""), Model(title: "Универсальный доступ"), Model(title: "Обои"), Model(title: "Siri и Поиск"), Model(title: "Face ID и код-пароль"), Model(title: "Экстренный вызов - SOS"), Model(title: "Уведомления о контакте"), Model(title: "Аккумулятор"), Model(title: "Конфиденциальность")]
+    ]
+    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identification)
         
         return tableView
     }()
@@ -20,6 +28,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupHierarchy()
         setupLayout()
+        navigationItem.title = "Настройки"
 
         view.backgroundColor = .white
     }
@@ -38,17 +47,17 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        data.keys.count
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        data["Section\(section)"]?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identification, for: indexPath) as? TableViewCell else { return UITableViewCell() }
+        cell.titleLabel.text = data["Section\(indexPath.section)"]?[indexPath.row].title
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
-                                                 for: indexPath)
-        cell.textLabel?.text = "test"
-        
         return cell
     }
 }
-
