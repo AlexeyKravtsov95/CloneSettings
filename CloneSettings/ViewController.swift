@@ -109,4 +109,11 @@ extension ViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let data = modelData["Section\(indexPath.section)"]?[indexPath.row]{
+            print("Нажата ячейка \(data.title)")
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
 }
