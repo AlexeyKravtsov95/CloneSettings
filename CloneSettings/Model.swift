@@ -8,9 +8,11 @@
 import UIKit
 
 struct Model {
+    let type: CellType
     let title: String
     var isOn: Bool? = nil
     var descr: String? = nil
     var image: UIImage?
+    let color: UIColor?
 }
 
