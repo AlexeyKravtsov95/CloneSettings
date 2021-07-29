@@ -13,6 +13,8 @@
 		8C12BECB26ADDF3D00E216DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12BECA26ADDF3D00E216DB /* ViewController.swift */; };
 		8C12BED026ADDF3E00E216DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C12BECF26ADDF3E00E216DB /* Assets.xcassets */; };
 		8C12BED326ADDF3E00E216DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C12BED126ADDF3E00E216DB /* LaunchScreen.storyboard */; };
+		8CDB145326B2C48100267EFA /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDB145226B2C48100267EFA /* Data.swift */; };
+		8CDB145726B2C8A700267EFA /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDB145626B2C8A700267EFA /* CellType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		8C12BECF26ADDF3E00E216DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C12BED226ADDF3E00E216DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C12BED426ADDF3E00E216DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CDB145226B2C48100267EFA /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		8CDB145626B2C8A700267EFA /* CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				8C12BED426ADDF3E00E216DB /* Info.plist */,
 				8C119B9126B16FDC00F82D2B /* Model.swift */,
 				8C119B9726B1822A00F82D2B /* TableViewCell.swift */,
+				8CDB145226B2C48100267EFA /* Data.swift */,
+				8CDB145626B2C8A700267EFA /* CellType.swift */,
 			);
 			path = CloneSettings;
 			sourceTree = "<group>";
@@ -137,6 +143,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C12BECB26ADDF3D00E216DB /* ViewController.swift in Sources */,
+				8CDB145726B2C8A700267EFA /* CellType.swift in Sources */,
+				8CDB145326B2C48100267EFA /* Data.swift in Sources */,
 				8C119B9826B1822A00F82D2B /* TableViewCell.swift in Sources */,
 				8C12BEC726ADDF3D00E216DB /* AppDelegate.swift in Sources */,
 				8C119B9226B16FDC00F82D2B /* Model.swift in Sources */,

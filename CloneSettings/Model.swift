@@ -12,6 +12,5 @@ struct Model {
     var isOn: Bool? = nil
     var descr: String? = nil
     var image: UIImage?
-    var imageBackgroundColor: UIColor?
 }
 
