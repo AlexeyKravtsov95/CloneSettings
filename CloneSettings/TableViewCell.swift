@@ -15,7 +15,6 @@ class TableViewCell: UITableViewCell {
     func configure(with model: Model) {
         titleLabel.text = model.title
         icon.image = model.image
-        containerView.backgroundColor = model.imageBackgroundColor
     }
     
     public lazy var titleLabel: UILabel = {
@@ -27,7 +26,7 @@ class TableViewCell: UITableViewCell {
     
     public lazy var icon: UIImageView = {
         let icon = UIImageView()
-        icon.contentMode = .scaleAspectFill
+        icon.contentMode = .scaleAspectFit
         icon.clipsToBounds = true
         
         return icon
@@ -36,8 +35,8 @@ class TableViewCell: UITableViewCell {
     private lazy var containerView: UIView = {
         let view = UIView()
         view.clipsToBounds = true
-        view.layer.cornerRadius = 8
         view.layer.masksToBounds = true
+        
         return view
     }()
     
@@ -50,17 +49,18 @@ class TableViewCell: UITableViewCell {
     private func setupLayout() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 52).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 55).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
         
         containerView.translatesAutoresizingMaskIntoConstraints = false
         containerView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor).isActive = true
-        containerView.widthAnchor.constraint(equalToConstant: 84).isActive = true
-        containerView.heightAnchor.constraint(equalToConstant: 84).isActive = true
+        containerView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
+        containerView.widthAnchor.constraint(equalToConstant: 38).isActive = true
+        containerView.heightAnchor.constraint(equalToConstant: 38).isActive = true
         
         icon.translatesAutoresizingMaskIntoConstraints = false
         icon.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
-        icon.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 12).isActive = true
+        icon.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 4).isActive = true
         icon.widthAnchor.constraint(equalToConstant: 32).isActive = true
         icon.heightAnchor.constraint(equalToConstant: 32).isActive = true
     }
