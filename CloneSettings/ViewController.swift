@@ -12,10 +12,14 @@ class ViewController: UIViewController, UITableViewDelegate {
     private let modelData = Data().data
     
     private lazy var tableView: UITableView = {
+
         let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identification)
+        tableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identification)
+        tableView.register(DescriptionTableViewCell.self, forCellReuseIdentifier: DescriptionTableViewCell.identification)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identification)
+
         
         return tableView
     }()
@@ -60,9 +64,48 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let data = modelData["Section\(indexPath.section)"]?[indexPath.row] else {
+            return UITableViewCell()
+        }
+        
+        switch data.type {
+        case .plain:
+            return setupPlainCell(for: indexPath, with: data)
+        case .descr:
+            return setupDescriptionCell(for: indexPath, with: data)
+        case .switch:
+            return setupSwitchCell(for: indexPath, with: data)
+        }        
+    }
+    
+    private func setupPlainCell(for indexPath: IndexPath, with data: Model) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identification, for: indexPath) as? TableViewCell else { return UITableViewCell() }
-        cell.titleLabel.text = modelData["Section\(indexPath.section)"]?[indexPath.row].title
-        cell.icon.image = modelData["Section\(indexPath.section)"]?[indexPath.row].image
+        cell.titleLabel.text = data.title
+        cell.icon.image = data.image
+        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+        cell.containerView.backgroundColor = data.color
+        
+        return cell
+    }
+    
+    private func setupDescriptionCell(for indexPath: IndexPath, with data: Model) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionTableViewCell.identification, for: indexPath) as? DescriptionTableViewCell else { return UITableViewCell() }
+        cell.titleLabel.text = data.title
+        cell.icon.image = data.image
+        cell.descriptionLabel.text = data.descr
+        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+        cell.containerView.backgroundColor = data.color
+
+        return cell
+    }
+    
+    private func setupSwitchCell(for indexPath: IndexPath, with data: Model) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.identification, for: indexPath) as? SwitchTableViewCell else { return UITableViewCell() }
+        cell.titleLabel.text = data.title
+        cell.icon.image = data.image
+        cell.switchControl.isOn = data.isOn!
+        cell.containerView.backgroundColor = data.color
         
         return cell
     }

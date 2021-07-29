@@ -1,20 +1,21 @@
 //
-//  TableViewCell.swift
+//  DescriptionTableViewCell.swift
 //  CloneSettings
 //
-//  Created by a.kravcov on 28.07.2021.
+//  Created by a.kravcov on 30.07.2021.
 //
 
 import Foundation
 import UIKit
 
-class TableViewCell: UITableViewCell {
+class DescriptionTableViewCell: UITableViewCell {
     
-    static let identification = "tableId"
+    static let identification = "desctiptionId"
     
     func configure(with model: Model) {
         titleLabel.text = model.title
         icon.image = model.image
+        descriptionLabel.text = model.descr
         containerView.backgroundColor = model.color
     }
     
@@ -34,6 +35,14 @@ class TableViewCell: UITableViewCell {
         return icon
     }()
     
+    public lazy var descriptionLabel: UILabel = {
+        let descr = UILabel()
+        descr.font = .boldSystemFont(ofSize: 17)
+        descr.textColor = .systemGray
+        
+        return descr
+    }()
+    
     public lazy var containerView: UIView = {
         let view = UIView()
         view.clipsToBounds = true
@@ -47,6 +56,7 @@ class TableViewCell: UITableViewCell {
         addSubview(titleLabel)
         addSubview(containerView)
         containerView.addSubview(icon)
+        addSubview(descriptionLabel)
     }
     
     private func setupLayout() {
@@ -66,6 +76,10 @@ class TableViewCell: UITableViewCell {
         icon.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 3).isActive = true
         icon.widthAnchor.constraint(equalToConstant: 26).isActive = true
         icon.heightAnchor.constraint(equalToConstant: 26).isActive = true
+        
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor).isActive = true
+        descriptionLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -40).isActive = true
     }
     
     required init?(coder: NSCoder) {
@@ -78,3 +92,4 @@ class TableViewCell: UITableViewCell {
         setupLayout()
     }
 }
+
