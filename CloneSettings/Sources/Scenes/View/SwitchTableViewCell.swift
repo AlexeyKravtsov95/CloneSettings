@@ -12,7 +12,7 @@ class SwitchTableViewCell: UITableViewCell {
     
     static let identification = "switchId"
     
-    func configure(with model: Model) {
+    func configure(with model: Settings) {
         titleLabel.text = model.title
         icon.image = model.image
         switchControl.isOn = model.isOn ?? false

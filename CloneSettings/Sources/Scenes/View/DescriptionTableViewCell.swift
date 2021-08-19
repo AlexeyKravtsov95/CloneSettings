@@ -12,10 +12,10 @@ class DescriptionTableViewCell: UITableViewCell {
     
     static let identification = "desctiptionId"
     
-    func configure(with model: Model) {
+    func configure(with model: Settings) {
         titleLabel.text = model.title
         icon.image = model.image
-        descriptionLabel.text = model.descr
+        descriptionLabel.text = model.description
         containerView.backgroundColor = model.color
     }
     
