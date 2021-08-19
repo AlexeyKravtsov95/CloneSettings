@@ -7,12 +7,18 @@
 
 import UIKit
 
-struct Model {
+struct Settings {
     let type: CellType
     let title: String
     var isOn: Bool? = nil
-    var descr: String? = nil
+    var description: String? = nil
     var image: UIImage?
     let color: UIColor?
+}
+
+enum CellType {
+    case plain
+    case description
+    case switchControl
 }
 

@@ -12,7 +12,7 @@ class TableViewCell: UITableViewCell {
     
     static let identification = "tableId"
     
-    func configure(with model: Model) {
+    func configure(with model: Settings) {
         titleLabel.text = model.title
         icon.image = model.image
         containerView.backgroundColor = model.color
