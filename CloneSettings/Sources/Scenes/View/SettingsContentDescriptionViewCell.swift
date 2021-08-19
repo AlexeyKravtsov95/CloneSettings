@@ -1,5 +1,5 @@
 //
-//  SwitchTableViewCell.swift
+//  DescriptionTableViewCell.swift
 //  CloneSettings
 //
 //  Created by a.kravcov on 30.07.2021.
@@ -8,14 +8,14 @@
 import Foundation
 import UIKit
 
-class SwitchTableViewCell: UITableViewCell {
+class SettingsContentDescriptionViewCell: UITableViewCell {
     
-    static let identification = "switchId"
+    static let identification = "desctiptionId"
     
-    func configure(with model: Settings) {
+    func configureModel(with model: Settings) {
         titleLabel.text = model.title
         icon.image = model.image
-        switchControl.isOn = model.isOn ?? false
+        descriptionLabel.text = model.description
         containerView.backgroundColor = model.color
     }
     
@@ -35,6 +35,14 @@ class SwitchTableViewCell: UITableViewCell {
         return icon
     }()
     
+    public lazy var descriptionLabel: UILabel = {
+        let descr = UILabel()
+        descr.font = .boldSystemFont(ofSize: 17)
+        descr.textColor = .systemGray
+        
+        return descr
+    }()
+    
     public lazy var containerView: UIView = {
         let view = UIView()
         view.clipsToBounds = true
@@ -44,18 +52,11 @@ class SwitchTableViewCell: UITableViewCell {
         return view
     }()
     
-    public lazy var switchControl: UISwitch = {
-        let switchControl = UISwitch()
-        switchControl.onTintColor = .systemGreen
-        
-        return switchControl
-    }()
-    
     private func setupHierarchy() {
         addSubview(titleLabel)
         addSubview(containerView)
         containerView.addSubview(icon)
-        addSubview(switchControl)
+        addSubview(descriptionLabel)
     }
     
     private func setupLayout() {
@@ -76,9 +77,9 @@ class SwitchTableViewCell: UITableViewCell {
         icon.widthAnchor.constraint(equalToConstant: 26).isActive = true
         icon.heightAnchor.constraint(equalToConstant: 26).isActive = true
         
-        switchControl.translatesAutoresizingMaskIntoConstraints = false
-        switchControl.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor).isActive = true
-        switchControl.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -22).isActive = true
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor).isActive = true
+        descriptionLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -40).isActive = true
     }
     
     required init?(coder: NSCoder) {
@@ -91,3 +92,4 @@ class SwitchTableViewCell: UITableViewCell {
         setupLayout()
     }
 }
+

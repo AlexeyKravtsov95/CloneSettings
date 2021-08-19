@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-class TableViewCell: UITableViewCell {
+class SettingsContentViewCell: UITableViewCell {
     
     static let identification = "tableId"
     
-    func configure(with model: Settings) {
+    func configureModel(with model: Settings) {
         titleLabel.text = model.title
         icon.image = model.image
         containerView.backgroundColor = model.color
