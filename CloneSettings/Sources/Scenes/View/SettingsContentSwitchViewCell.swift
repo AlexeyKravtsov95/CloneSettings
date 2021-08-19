@@ -1,20 +1,21 @@
 //
-//  TableViewCell.swift
+//  SwitchTableViewCell.swift
 //  CloneSettings
 //
-//  Created by a.kravcov on 28.07.2021.
+//  Created by a.kravcov on 30.07.2021.
 //
 
 import Foundation
 import UIKit
 
-class TableViewCell: UITableViewCell {
+class SettingsContentSwitchViewCell: UITableViewCell {
     
-    static let identification = "tableId"
+    static let identification = "switchId"
     
-    func configure(with model: Model) {
+    func configureModel(with model: Settings) {
         titleLabel.text = model.title
         icon.image = model.image
+        switchControl.isOn = model.isOn ?? false
         containerView.backgroundColor = model.color
     }
     
@@ -43,10 +44,18 @@ class TableViewCell: UITableViewCell {
         return view
     }()
     
+    public lazy var switchControl: UISwitch = {
+        let switchControl = UISwitch()
+        switchControl.onTintColor = .systemGreen
+        
+        return switchControl
+    }()
+    
     private func setupHierarchy() {
         addSubview(titleLabel)
         addSubview(containerView)
         containerView.addSubview(icon)
+        addSubview(switchControl)
     }
     
     private func setupLayout() {
@@ -66,6 +75,10 @@ class TableViewCell: UITableViewCell {
         icon.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 3).isActive = true
         icon.widthAnchor.constraint(equalToConstant: 26).isActive = true
         icon.heightAnchor.constraint(equalToConstant: 26).isActive = true
+        
+        switchControl.translatesAutoresizingMaskIntoConstraints = false
+        switchControl.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor).isActive = true
+        switchControl.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -22).isActive = true
     }
     
     required init?(coder: NSCoder) {

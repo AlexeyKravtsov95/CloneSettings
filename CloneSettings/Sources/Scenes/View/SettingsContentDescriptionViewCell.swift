@@ -8,14 +8,14 @@
 import Foundation
 import UIKit
 
-class DescriptionTableViewCell: UITableViewCell {
+class SettingsContentDescriptionViewCell: UITableViewCell {
     
     static let identification = "desctiptionId"
     
-    func configure(with model: Model) {
+    func configureModel(with model: Settings) {
         titleLabel.text = model.title
         icon.image = model.image
-        descriptionLabel.text = model.descr
+        descriptionLabel.text = model.description
         containerView.backgroundColor = model.color
     }
     
