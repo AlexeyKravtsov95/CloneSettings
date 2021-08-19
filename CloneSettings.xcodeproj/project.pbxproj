@@ -8,19 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		8C119B9226B16FDC00F82D2B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C119B9126B16FDC00F82D2B /* Settings.swift */; };
-		8C119B9826B1822A00F82D2B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C119B9726B1822A00F82D2B /* TableViewCell.swift */; };
+		8C119B9826B1822A00F82D2B /* SettingsContentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C119B9726B1822A00F82D2B /* SettingsContentViewCell.swift */; };
 		8C12BEC726ADDF3D00E216DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12BEC626ADDF3D00E216DB /* AppDelegate.swift */; };
 		8C12BECB26ADDF3D00E216DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12BECA26ADDF3D00E216DB /* ViewController.swift */; };
 		8C12BED026ADDF3E00E216DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C12BECF26ADDF3E00E216DB /* Assets.xcassets */; };
 		8C12BED326ADDF3E00E216DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C12BED126ADDF3E00E216DB /* LaunchScreen.storyboard */; };
 		8CDB145326B2C48100267EFA /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDB145226B2C48100267EFA /* SettingsModel.swift */; };
-		8CDB146426B335FD00267EFA /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDB146326B335FD00267EFA /* SwitchTableViewCell.swift */; };
-		8CDB146726B33B0E00267EFA /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDB146626B33B0E00267EFA /* DescriptionTableViewCell.swift */; };
+		8CDB146426B335FD00267EFA /* SettingsContentSwitchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDB146326B335FD00267EFA /* SettingsContentSwitchViewCell.swift */; };
+		8CDB146726B33B0E00267EFA /* SettingsContentDescriptionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDB146626B33B0E00267EFA /* SettingsContentDescriptionViewCell.swift */; };
+		8CEBF6F426CE08E2000ABA26 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEBF6F326CE08E2000ABA26 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8C119B9126B16FDC00F82D2B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		8C119B9726B1822A00F82D2B /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		8C119B9726B1822A00F82D2B /* SettingsContentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContentViewCell.swift; sourceTree = "<group>"; };
 		8C12BEC326ADDF3D00E216DB /* CloneSettings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloneSettings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C12BEC626ADDF3D00E216DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C12BECA26ADDF3D00E216DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,8 +29,9 @@
 		8C12BED226ADDF3E00E216DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C12BED426ADDF3E00E216DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CDB145226B2C48100267EFA /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
-		8CDB146326B335FD00267EFA /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
-		8CDB146626B33B0E00267EFA /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		8CDB146326B335FD00267EFA /* SettingsContentSwitchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContentSwitchViewCell.swift; sourceTree = "<group>"; };
+		8CDB146626B33B0E00267EFA /* SettingsContentDescriptionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContentDescriptionViewCell.swift; sourceTree = "<group>"; };
+		8CEBF6F326CE08E2000ABA26 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,9 +119,10 @@
 		8CEBF6E726CE0312000ABA26 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8C119B9726B1822A00F82D2B /* TableViewCell.swift */,
-				8CDB146326B335FD00267EFA /* SwitchTableViewCell.swift */,
-				8CDB146626B33B0E00267EFA /* DescriptionTableViewCell.swift */,
+				8C119B9726B1822A00F82D2B /* SettingsContentViewCell.swift */,
+				8CDB146326B335FD00267EFA /* SettingsContentSwitchViewCell.swift */,
+				8CDB146626B33B0E00267EFA /* SettingsContentDescriptionViewCell.swift */,
+				8CEBF6F326CE08E2000ABA26 /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -201,11 +204,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CDB146726B33B0E00267EFA /* DescriptionTableViewCell.swift in Sources */,
+				8CDB146726B33B0E00267EFA /* SettingsContentDescriptionViewCell.swift in Sources */,
+				8CEBF6F426CE08E2000ABA26 /* SettingsView.swift in Sources */,
 				8C12BECB26ADDF3D00E216DB /* ViewController.swift in Sources */,
-				8CDB146426B335FD00267EFA /* SwitchTableViewCell.swift in Sources */,
+				8CDB146426B335FD00267EFA /* SettingsContentSwitchViewCell.swift in Sources */,
 				8CDB145326B2C48100267EFA /* SettingsModel.swift in Sources */,
-				8C119B9826B1822A00F82D2B /* TableViewCell.swift in Sources */,
+				8C119B9826B1822A00F82D2B /* SettingsContentViewCell.swift in Sources */,
 				8C12BEC726ADDF3D00E216DB /* AppDelegate.swift in Sources */,
 				8C119B9226B16FDC00F82D2B /* Settings.swift in Sources */,
 			);
